@@ -1,4 +1,4 @@
-import { Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { Address, Name, Student } from './student/student.interface';
 
 const nameSchema = new Schema<Name>({
