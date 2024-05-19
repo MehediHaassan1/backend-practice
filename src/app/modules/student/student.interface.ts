@@ -1,3 +1,5 @@
+import { HydratedDocument, Model } from 'mongoose';
+
 export type TName = {
     firstName: string;
     middleName?: string;
@@ -42,4 +44,14 @@ export type TStudent = {
     bloodGroup?: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
     dateOfBirth: string;
     profileImg?: string;
+}
+
+export type TStudentMethods = {
+    isStudentExists(id: string): Promise<TStudent | null>;
+}
+
+// export type StudentModel = Model<TStudent, {}, TStudentMethods>
+
+export interface StudentModel extends Model<TStudent, {}, TStudentMethods> {
+    isStudentExists(id: string): Promise<HydratedDocument<TStudent | null>>;
 }
