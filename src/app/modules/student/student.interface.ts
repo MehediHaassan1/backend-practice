@@ -1,45 +1,44 @@
-export type Name = {
+export type TName = {
     firstName: string;
     middleName?: string;
     lastName: string;
 }
 
-export type Address = {
+export type TAddress = {
     street: string;
     city: string;
     state: string;
-    zipCode: string;
     country: string;
 }
 
-export type Parents = {
-    fatherName: Name;
+export type TParents = {
+    fatherName: TName;
     fatherOcuppation: string;
     fatherContactNo: string;
-    motherName: Name;
+    motherName: TName;
     motherOcuppation: string;
     motherContactNo: string;
 }
 
-export type Guardian = {
-    guardianName: Name;
+export type TGuardian = {
+    guardianName: TName;
     age: number;
-    relation: "Father" | "Mother" ;
-    address: Address;
+    relation: "Father" | "Mother";
+    address: TAddress;
     contactNo: string;
 }
 
-export type Student = {
+export type TStudent = {
     id: string;
-    name: Name;
+    name: TName;
     age: number;
-    gender: "Male" | "Female" ;
-    presentAddress: Address;
-    permanentAddress?: Address;
-    guardian: Guardian;
+    gender: "male" | "female" | "other";
+    presentAddress: TAddress;
+    permanentAddress?: TAddress;
+    guardian: TGuardian;
     email: string;
     contactNo: string;
-    parents: Parents;
+    parents: TParents;
     bloodGroup?: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
     dateOfBirth: string;
     profileImg?: string;
